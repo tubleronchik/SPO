@@ -1,0 +1,15 @@
+#!/bin/bash
+rm test.xls
+echo "Имя \ Размер \  Дата \ Тип \ Длительность" >> test.xls
+IFS=$'\n'
+for file in $( find /home/tubleronchik/Studying -type f ); do
+
+	name=$( echo "$file"  |  awk -F "/" '{print $NF}') #имя файла, ключ разделителя
+	size=$(stat -c%s $file ) 
+	date=$(stat -c%z $file) # дата последнего изменения
+	type=$(file $file  |  awk -F ":" '{print $NF}')
+	duration=$(ffmpeg -i $file 2>&1 | grep Duration | awk '{print $2}')
+	echo "$name \ $size \ $date \ $type \ $duration" >> test.xls
+
+done
+
