@@ -2,7 +2,10 @@
 rm test.xls
 echo "Имя \ Размер \  Дата \ Тип \ Длительность" >> test.xls
 IFS=$'\n'
-for file in $( find /home/tubleronchik/Studying -type f ); do
+echo "Выберите директорию"
+read input
+for file in $( find $input -type f ); do
+
 
 	name=$( echo "$file"  |  awk -F "/" '{print $NF}') #имя файла, ключ разделителя
 	size=$(stat -c%s $file ) 
