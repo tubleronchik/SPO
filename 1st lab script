@@ -9,7 +9,7 @@ for file in $( find $input -type f ); do
 
 	name=$( echo "$file"  |  awk -F "/" '{print $NF}') #имя файла, ключ разделителя
 	size=$(stat -c%s $file ) 
-	date=$(stat -c%z $file) # дата последнего изменения
+	date=$(stat -c%.10z $file) # дата последнего изменения
 	type=$(file $file  |  awk -F ":" '{print $NF}')
 	duration=$(ffmpeg -i $file 2>&1 | grep Duration | awk '{print $2}')
 	echo "$name \ $size \ $date \ $type \ $duration" >> test.xls
