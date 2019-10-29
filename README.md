@@ -3,4 +3,4 @@
 
 2nd script installs PyBitmessages
 
-3rd lab is analyzer of last election (Phython)
+3rd lab is analyzer of last election (Python)
