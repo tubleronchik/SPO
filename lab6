@@ -1,0 +1,52 @@
+#!/bin/bash
+
+
+gnome-terminal --command roscore
+sleep 2
+gnome-terminal --command "rosrun turtlesim turtlesim_node"
+sleep 2
+rosservice call /kill turtle1
+
+
+rosservice call spawn 0.2 7.0 0.8 turtle_1
+rostopic pub -1 /turtle_1/cmd_vel geometry_msgs/Twist -- '[3.14, 0.0, 0.0]' '[0.0, 0.0, -3.14]'
+rostopic pub -1 /turtle_1/cmd_vel geometry_msgs/Twist -- '[2, 0.0, 0.0]' '[0.0, 0.0, 0.0]'
+rostopic pub -1 /turtle_1/cmd_vel geometry_msgs/Twist -- '[0.0, 0.0, 0.0]' '[0.0, 0.0, 2.35]'
+rostopic pub -1 /turtle_1/cmd_vel geometry_msgs/Twist -- '[2, 0.0, 0.0]' '[0.0, 0.0, 0.0]'
+rosservice call kill turtle_1
+
+rosservice call spawn 2.7 7.0 4.7 turtle_2
+rostopic pub -1 /turtle_2/cmd_vel geometry_msgs/Twist -- '[2, 0.0, 0.0]' '[0.0, 0.0, 0.0]'
+rostopic pub -1 /turtle_2/cmd_vel geometry_msgs/Twist -- '[0.0, 0.0, 0.0]' '[0.0, 0.0, 1.57]'
+rostopic pub -1 /turtle_2/cmd_vel geometry_msgs/Twist -- '[1, 0.0, 0.0]' '[0.0, 0.0, 0.0]'
+rostopic pub -1 /turtle_2/cmd_vel geometry_msgs/Twist -- '[0, 0.0, 0.0]' '[0.0, 0.0, 1.57]'
+rostopic pub -1 /turtle_2/cmd_vel geometry_msgs/Twist -- '[2, 0.0, 0.0]' '[0.0, 0.0, 0.0]'
+rostopic pub -1 /turtle_2/cmd_vel geometry_msgs/Twist -- '[-3, 0.0, 0.0]' '[0.0, 0.0, 0.0]'
+rosservice call kill turtle_2
+
+rosservice call spawn 4.3 7.0 0.8 turtle_3
+rostopic pub -1 /turtle_3/cmd_vel geometry_msgs/Twist -- '[3.14, 0.0, 0.0]' '[0.0, 0.0, -3.7]'
+rostopic pub -1 /turtle_3/cmd_vel geometry_msgs/Twist -- '[0.0, 0.0, 0.0]' '[0.0, 0.0, 2.8]'
+rostopic pub -1 /turtle_3/cmd_vel geometry_msgs/Twist -- '[3.14, 0.0, 0.0]' '[0.0, 0.0, -3.7]'
+rosservice call kill turtle_3
+
+rosservice call spawn 6.4 7.0 0.8 turtle_4
+rostopic pub -1 /turtle_4/cmd_vel geometry_msgs/Twist -- '[6.28, 0.0, 0.0]' '[0.0, 0.0, -8.6]'
+rostopic pub -1 /turtle_4/cmd_vel geometry_msgs/Twist -- '[2.6, 0.0, 0.0]' '[0.0, 0.0, 0.0]'
+rosservice call kill turtle_4
+
+rosservice call spawn 8 7.0 4.7 turtle_5
+rostopic pub -1 /turtle_5/cmd_vel geometry_msgs/Twist -- '[2, 0.0, 0.0]' '[0.0, 0.0, 0.0]'
+rostopic pub -1 /turtle_5/cmd_vel geometry_msgs/Twist -- '[0.0, 0.0, 0.0]' '[0.0, 0.0, 1.57]'
+rostopic pub -1 /turtle_5/cmd_vel geometry_msgs/Twist -- '[1, 0.0, 0.0]' '[0.0, 0.0, 0.0]'
+rostopic pub -1 /turtle_5/cmd_vel geometry_msgs/Twist -- '[0, 0.0, 0.0]' '[0.0, 0.0, 1.57]'
+rostopic pub -1 /turtle_5/cmd_vel geometry_msgs/Twist -- '[2, 0.0, 0.0]' '[0.0, 0.0, 0.0]'
+rostopic pub -1 /turtle_5/cmd_vel geometry_msgs/Twist -- '[-3, 0.0, 0.0]' '[0.0, 0.0, 0.0]'
+rosservice call kill turtle_5
+
+rosservice call spawn 9.3 7.0 0.0 turtle_6
+rostopic pub -1 /turtle_6/cmd_vel geometry_msgs/Twist -- '[2, 0.0, 0.0]' '[0.0, 0.0, 0.0]'
+rostopic pub -1 /turtle_6/cmd_vel geometry_msgs/Twist -- '[0.0, 0.0, 0.0]' '[0.0, 0.0, -2.0]'
+rostopic pub -1 /turtle_6/cmd_vel geometry_msgs/Twist -- '[3, 0.0, 0.0]' '[0.0, 0.0, 0.0]'
+rosservice call kill turtle_6
+
